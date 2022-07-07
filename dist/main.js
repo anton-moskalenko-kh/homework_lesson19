@@ -14,9 +14,8 @@ var checkArray = function checkArray() {
     rest[_key - 2] = arguments[_key];
   }
 
-  var arr = [a, b].concat(rest);
-  arr.length < 5 ? console.log("Error") : console.log("".concat(a, " - ").concat(b, " - ").concat(rest[0]));
-  var args = arr.slice(3);
+  rest.length < 3 ? console.log("Error") : console.log("".concat(a, " - ").concat(b, " - ").concat(rest[0]));
+  var args = rest.slice(1);
   console.log(_objectSpread({}, args));
 };
 

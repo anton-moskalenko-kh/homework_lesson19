@@ -1,8 +1,7 @@
 let checkArray = (a = 'Error', b, ...rest) => {
-    const arr = [a,b, ...rest];
-    (arr.length < 5) ? console.log("Error") : console.log(`${a} - ${b} - ${rest[0]}`)
+    (rest.length < 3) ? console.log("Error") : console.log(`${a} - ${b} - ${rest[0]}`)
 
-    const args = arr.slice(3);
+    const args = rest.slice(1);
     console.log({...args})
 }
 
