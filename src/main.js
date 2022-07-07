@@ -3,7 +3,7 @@ function checkArray(a = 'Error', b, ...rest) {
     (arguments.length < 5) ? console.log("Error") : console.log(`${a} - ${b} - ${rest[0]}`)
 
     const args = Array.from(arguments).slice(3);
-    const obj = args.map((item) => {
+    const mapValues = args.map((item) => {
         const index = args.indexOf(item)
         map.set(index, item)
     })
