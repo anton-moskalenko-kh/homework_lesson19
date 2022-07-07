@@ -1,25 +1,13 @@
-function checkArray(...[arr]) {
-    const map = new Map();
+function checkArray(a = 'Error', b, ...rest) {
+    const map = new Map;
+    (arguments.length < 5) ? console.log("Error") : console.log(`${a} - ${b} - ${rest[0]}`)
 
-    if (arr.length < 5) {
-        console.log('Error')
-    }
-    if (arr[0] === undefined) {
-        arr[0] = 'Error'
-    }
-
-    const str = arr.slice(0,3).join('-')
-    console.log(str)
-
-    const newArr = arr.slice(3).forEach((item) => {
-        const index = arr.indexOf(item)
+    const args = Array.from(arguments).slice(3);
+    const obj = args.map((item) => {
+        const index = args.indexOf(item)
         map.set(index, item)
-    });
-
-    const obj = Object.fromEntries(map)
-    console.log(obj)
+    })
+    console.log(Object.fromEntries(map))
 }
 
-const data = [undefined,2,3,4,5,'sd']
-
-checkArray(data)
+checkArray(undefined,2,3,4,5,'sd')

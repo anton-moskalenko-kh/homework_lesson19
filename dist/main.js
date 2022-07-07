@@ -1,30 +1,21 @@
 "use strict";
 
 function checkArray() {
-  for (var _len = arguments.length, _ref = new Array(_len), _key = 0; _key < _len; _key++) {
-    _ref[_key] = arguments[_key];
+  var a = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'Error';
+  var b = arguments.length > 1 ? arguments[1] : undefined;
+
+  for (var _len = arguments.length, rest = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+    rest[_key - 2] = arguments[_key];
   }
 
-  var arr = _ref[0];
   var map = new Map();
-
-  if (arr.length < 5) {
-    console.log('Error');
-  }
-
-  if (arr[0] === undefined) {
-    arr[0] = 'Error';
-  }
-
-  var str = arr.slice(0, 3).join('-');
-  console.log(str);
-  var newArr = arr.slice(3).forEach(function (item) {
-    var index = arr.indexOf(item);
+  arguments.length < 5 ? console.log("Error") : console.log("".concat(a, " - ").concat(b, " - ").concat(rest[0]));
+  var args = Array.from(arguments).slice(3);
+  var obj = args.map(function (item) {
+    var index = args.indexOf(item);
     map.set(index, item);
   });
-  var obj = Object.fromEntries(map);
-  console.log(obj);
+  console.log(Object.fromEntries(map));
 }
 
-var data = [undefined, 2, 3, 4, 5, 'sd'];
-checkArray(data);
+checkArray(undefined, 2, 3, 4, 5, 'sd');
